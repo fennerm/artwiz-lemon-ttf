@@ -8,7 +8,6 @@ startwidth=$(identify -format "%w" -- "$last")
 startheight=$(identify -format "%h" -- "$last")
 newwidth=$(( $startwidth * 40))
 newheight=$(( $startheight * 40))
-echo "blah" > ~/test.txt
 cat "$last" |
     mkbitmap -f 3 -s 1 |
     convert -scale "${newwidth}x${newheight}" - - |
