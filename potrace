@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# A script for vectorizing bitmap fonts.
+# Draws heavily from https://gist.github.com/bendmorris/7170209
+# Additionally reduces filter radius, which I found gives better results.
+argv=("$0" "$@")
+last=${argv[$#]}
+startwidth=$(identify -format "%w" -- "$last")
+startheight=$(identify -format "%h" -- "$last")
+newwidth=$(( $startwidth * 40))
+newheight=$(( $startheight * 40))
+echo "blah" > ~/test.txt
+cat "$last" |
+    mkbitmap -f 3 -s 1 |
+    convert -scale "${newwidth}x${newheight}" - - |
+    /usr/bin/potrace \
+        --turdsize 0 \
+        --opttolerance 0 \
+        -a 0 \
+        "${argv[@]:1:$#-1}" \
+        -r 2880
