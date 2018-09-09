@@ -1,7 +1,14 @@
 #!/usr/bin/env bash
-# A script for vectorizing bitmap fonts.
-# Draws heavily from https://gist.github.com/bendmorris/7170209
-# Additionally reduces filter radius, which I found gives better results.
+# A fontforge autotrace script for vectorizing bitmap fonts.
+
+# This script is designed for use with fontforge, see:
+# http://monsterfacegames.blogspot.com/2013/10/creating-pixel-font-for-your-game.html
+# https://stackoverflow.com/questions/3750124/how-to-convert-a-bitmap-font-fon-into-a-truetype-font-ttf/8350648
+
+# Script was based on:
+# https://gist.github.com/bendmorris/7170209
+# ... but reduces filter radius, which I found gives better results.
+
 argv=("$0" "$@")
 last=${argv[$#]}
 startwidth=$(identify -format "%w" -- "$last")
