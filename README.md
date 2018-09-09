@@ -8,5 +8,5 @@ See `potrace` for the autotrace script which was used to build the font.
 
 Place `lemon.ttf` in a directory in your fonts path (e.g ~/.fonts).
 
-**Note that the font is named 'lemon', in contrast to 'artwiz lemon' as used in
-the bitmap version.**
+**Note that the font is named 'lemon', in contrast to the bitmap version which
+uses 'artwiz lemon'.**
